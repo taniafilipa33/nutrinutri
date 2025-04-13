@@ -31,10 +31,18 @@ export default function Card({ nutri }: { nutri: Nutri }) {
                         </span>
                         <h2 className="text-xl font-semibold">{nutri.name}</h2>
                         <p className="text-sm text-gray-500">
-                            {nutri.services.map(service => (<span key="service.id">{service.name}</span>))}</p>
+                            {nutri.services.map((service, index) => (
+                                <span key={service.id}>
+                                    {service.name}{index < nutri.services.length - 1 ? ', ' : ''}
+                                </span>
+                            ))}</p>
                         <div className="flex items-center text-sm text-gray-600 mt-2">
-
-                            {nutri.services.map(service => (<span key="service.id">{service.location}</span>))}
+                            <i className="fa fa-map-marker" aria-hidden="true"></i>
+                            {nutri.services.map((service, index) => (
+                                <span key={service.id}>
+                                    {service.location}{index < nutri.services.length - 1 ? ', ' : ''}
+                                </span>
+                            ))}
                         </div>
                         <div className="text-sm text-blue-600 font-medium mt-1 cursor-pointer hover:underline">
                             Online Follow-up

@@ -13,7 +13,26 @@ require 'faker'
 
 # Clear existing data
 [Service, Appointment, User].each(&:destroy_all)
-
+sentences = [
+    "Personalized Nutrition Counseling",
+    "Weight Management Guidance",
+    "Dietary Assessments",
+    "Meal Planning and Preparation",
+    "Nutritional Education",
+    "Sports Nutrition",
+    "Chronic Disease Management",
+    "Gut Health and Digestive Support",
+    "Food Sensitivity and Allergy Management",
+    "Healthy Cooking Classes",
+    "Nutritional Supplements Advice",
+    "Detox and Cleansing Programs",
+    "Prenatal and Postnatal Nutrition",
+    "Elderly Nutrition",
+    "Mindful Eating Practices",
+    "Healthy Eating for Families",
+    "Behavioral Coaching for Healthy Habits",
+    "Nutrition for Skin Health"
+  ]
 
 10.times do
     fake_nutri = Nutritionist.create!(
@@ -23,9 +42,9 @@ require 'faker'
     
     4.times do 
         fake_nutri.services.create!(
-            name:Faker::Lorem.sentences(number: 1),
+            name: sentences.sample,
             price: rand(10..500),
-            location: Faker::Address.full_address
+            location: Faker::Address.city
         )
     end
 end 

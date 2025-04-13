@@ -33,7 +33,7 @@ export default function RequestsPage() {
         <Layout>
             <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                 <p></p>
-                <span className="text-xl">Peding Requests</span>
+                <span className="text-xl">Pending Requests</span>
                 <p></p>
                 <span className="mb-58">Accept or reject pending requests</span>
                 <RequestsList appointments={requests} reloadAppointments={loadRequests} />
