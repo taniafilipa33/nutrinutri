@@ -36,9 +36,11 @@ export const requestAppointment = async (name: string, email: string, requested_
 
 export const answerAppointment = async (id: string, status: string) => {
     const response = await api.patch(`/appointments/${id}`, {
-        appointment: {
+
+        appointments: {
             status: status
         }
+
     });
     return response.data;
 }

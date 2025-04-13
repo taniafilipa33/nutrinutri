@@ -72,3 +72,4 @@ gem 'letter_opener'
 
  gem 'shoulda-matchers'
 
+  gem 'simplecov', require: false

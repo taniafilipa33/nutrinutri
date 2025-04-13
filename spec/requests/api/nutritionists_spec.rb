@@ -12,6 +12,9 @@ RSpec.describe "Api::NutritionistsController", type: :request do
     end
   end
 
+ 
+ 
+
   describe "GET /nutritionists/search" do
     it "returns matching nutritionists by name or service" do
       get "/nutritionists/search", params: { query: "Meal" }

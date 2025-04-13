@@ -7,10 +7,6 @@ module Api
             render json: @appointments
         end
         
-          #tipo find one (funciona sem mandar request) GET /groups/1
-        def show
-            render json: @appointment
-        end
          
         def create
             @guest = Guest.find_by(email: params[:email])
@@ -35,10 +31,12 @@ module Api
         end
 
         def update
-            Rails.logger.debug "DEBUGGING: Params are #{params.inspect}"
-            if(params[:status] == "accepted")
+            puts "AQUI DEBUGERE #{params}"
+            @appointment =  Appointment.find(params[:id])
+
+            if(appointment_params[:status] == "accepted")
                 #guest appointsme ts of the same guest at the sime datetime
-                @appointments = Appointment.where(guest_id: params[:guest_id], status: 'pending', requested_date: params[:requested_date])
+                @appointments = Appointment.where(guest_id: @appointment.guest_id, status: 'pending', requested_date:@appointment.requested_date)
                 #reject them all
                 @appointments.each do |appointment|
                     appointment.update(status: 'rejected')
@@ -53,10 +51,6 @@ module Api
             end    
         end
 
-                # DELETE /groups/1
-        def destroy
-            @appointment.destroy
-        end
 
         def search
             query = params[:status]
@@ -72,7 +66,7 @@ module Api
 
         def only_one_pending
             # Check if the guest exists
-            puts "DEBUGGING: Params are #{params.inspect}"
+         
             @guest = Guest.find_by(email: params[:email])
             if !@guest.nil?
                 if Appointment.exists?(guest_id: @guest.id, status: 'pending')
@@ -89,7 +83,7 @@ module Api
 
             # Only allow a list of trusted parameters through. TIPO VALIDATOR NO LARAVEL
         def appointment_params
-            params.require(:appointment).permit(:requested_date, :status, :guest_id, :service_id)
+            params.require(:appointments).permit( :status)
         end
     end         
 end

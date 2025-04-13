@@ -74,4 +74,17 @@ RSpec.configure do |config|
       with.library :rails
     end
   end
+
+  require 'simplecov'
+SimpleCov.start 'rails' do
+  # Additional configuration here
+  add_filter '/bin/'
+  add_filter '/spec/'
+  add_filter '/config/'
+  
+  # You can configure groups
+  add_group 'Models', 'app/models'
+  add_group 'Controllers', 'app/controllers'
+  add_group 'Services', 'app/services'
+end
 end

@@ -5,13 +5,6 @@ module Api
             render json: @nutritionist, include: [:services]
         end
 
-        def show
-            render json: @nutritionist, include: [:services]
-        end
-
-        def services
-            render json: nutritionist.services
-        end
 
         def search
             query = params[:query]
