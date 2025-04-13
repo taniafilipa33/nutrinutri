@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h2>Hello <%= @guest.name %>,</h2>
+
+    <p>Your appointment has been <strong><%= @appointment.status %></strong>.</p>
+
+    <p>Scheduled date: <%= @appointment.requested_date.strftime("%B %d, %Y at %I:%M %p") %></p>
+
+    <p>Thanks,<br>Nutrium Team</p>
+  </body>
+</html>
