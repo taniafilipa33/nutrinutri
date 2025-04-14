@@ -32,7 +32,7 @@ Optional but recommended:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/your-repo-name.git
+git clone https://github.com/taniafilipa33/nutrinutri.git
 cd nutrinutri
 ```
 
@@ -48,7 +48,6 @@ rails db:seed
 ### 3. Frontend Setup (React)
 
 ```bash
-cd frontend
 yarn install
 yarn start
 ```
@@ -99,15 +98,15 @@ The backend can also be used as a standalone REST API. Below are the available e
 ### 📋 Nutritionists
 
 - `GET /nutritionists` — List all nutritionists  
-- `GET /nutritionists/search` — Search nutritionists by parameters (e.g., name, specialty)
+- `GET /nutritionists/search` — Search nutritionists by parameters (e.g., name, service, location)
 
 ### 📅 Appointments
 
 - `GET /appointments` — List all appointments  
 - `POST /appointments` — Create a new appointment  
-- `GET /appointments/checkPending` — Check for a user's only pending appointment  
-- `PATCH /appointments/:id` — Update an appointment  
-- `GET /appointments/search` — Search for appointments by query
+- `GET /appointments/checkPending` — Check for user's existing pending requests  
+- `PATCH /appointments/:id` — Update an appointment (status) 
+- `GET /appointments/search` — Search for appointments by query (used to get pending appointments)
 
 > You can test these endpoints using tools like [Postman](https://www.postman.com/) or `curl`.
 
