@@ -1,24 +1,19 @@
-# Project Name
+# 🥦 NutriNutri
 
-## Description
-NutriNutri is a web application for booking and managing nutritionist appointments.
-The app allows users to schedule appointments.
+**NutriNutri** is a modern web application for booking and managing appointments with nutritionists. It allows users to seamlessly schedule and manage their sessions through an intuitive interface.
 
----
+## 📚 Table of Contents
 
-## Table of Contents
-- [Prerequisites](#prerequisites)
-- [Setup Instructions](#setup-instructions)
-- [Running the App](#running-the-app)
-- [Running Tests](#running-tests)
-- [Contributing](#contributing)
-- [License](#license)
+- 🚀 Prerequisites  
+- ⚙️ Setup Instructions  
+- ▶️ Running the App  
+- 🧪 Running Tests  
+- 🤝 Contributing  
+- 📄 License
 
----
+## 🚀 Prerequisites
 
-## Prerequisites
-
-Before you begin, ensure you have the following installed:
+Before setting up the project, ensure the following tools are installed on your system:
 
 - [Ruby](https://www.ruby-lang.org/en/documentation/installation/)
 - [Rails](https://guides.rubyonrails.org/getting_started.html)
@@ -27,24 +22,100 @@ Before you begin, ensure you have the following installed:
 - [PostgreSQL](https://www.postgresql.org/download/)
 - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
-You will also need a code editor like [VS Code](https://code.visualstudio.com/) and a browser for testing.
+Optional but recommended:
 
----
+- [VS Code](https://code.visualstudio.com/) or your preferred code editor  
+- A modern browser for testing the UI
 
-## Setup Instructions
+## ⚙️ Setup Instructions
 
-Follow these steps to set up the project locally:
-1.bundle install
-2.yarn install
-3.rails db:create
-4.rails db:migrate
-5.rails db:seed
-
-
-### 1. Clone the repository
-
-Clone the project from GitHub to your local machine:
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/yourusername/your-repo-name.git
 cd nutrinutri
+```
+
+### 2. Backend Setup (Rails)
+
+```bash
+bundle install
+rails db:create
+rails db:migrate
+rails db:seed
+```
+
+### 3. Frontend Setup (React)
+
+```bash
+cd frontend
+yarn install
+yarn start
+```
+
+## ▶️ Running the App
+
+After completing the setup:
+
+Start the **Rails server**:  
+```bash
+rails server
+```
+
+Start the **React frontend** (in a separate terminal):  
+```bash
+yarn start
+```
+
+## 🧪 Running Tests
+
+### Backend (RSpec)
+
+To run unit tests for the backend:
+
+```bash
+bundle exec rspec
+```
+
+Code coverage reports are generated in `coverage/index.html`. Open the file in your browser to view the report.
+
+### Frontend (Cypress)
+
+To run frontend tests:
+
+```bash
+npx cypress open
+```
+
+This will open the Cypress Test Runner where you can select and run tests.
+
+
+---
+
+## 🌐 API Usage (Backend as REST API)
+
+The backend can also be used as a standalone REST API. Below are the available endpoints:
+
+### 📋 Nutritionists
+
+- `GET /nutritionists` — List all nutritionists  
+- `GET /nutritionists/search` — Search nutritionists by parameters (e.g., name, specialty)
+
+### 📅 Appointments
+
+- `GET /appointments` — List all appointments  
+- `POST /appointments` — Create a new appointment  
+- `GET /appointments/checkPending` — Check for a user's only pending appointment  
+- `PATCH /appointments/:id` — Update an appointment  
+- `GET /appointments/search` — Search for appointments by query
+
+> You can test these endpoints using tools like [Postman](https://www.postman.com/) or `curl`.
+
+Make sure to start the Rails server before making requests:
+
+```bash
+rails server
+```
+
+API responses are in JSON format by default.
+
