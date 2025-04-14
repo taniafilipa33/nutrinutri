@@ -1,10 +1,11 @@
 import React from "react";
 import Card from "./Card";
+import { useTranslation } from 'react-i18next';
 
 interface Service {
     id: string;
     name: string;
-
+    price: number;
     location: string;
 }
 
@@ -16,8 +17,9 @@ interface Nutri {
 }
 
 export default function SearchList({ nutris }: { nutris: Nutri[] }) {
-    if (!nutris || nutris.length === 0) return (<div> <span> No results</span></div>)
-    console.log(nutris)
+    const { t } = useTranslation();
+    if (!nutris || nutris.length === 0) return (<div> <span>{t('no_results')}</span></div>)
+
     return (
         <div className="">
             {nutris.map((nutri) => (

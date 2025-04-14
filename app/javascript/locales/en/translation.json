@@ -1,0 +1,21 @@
+{
+    "welcome": "Welcome to nutrinutri",
+    "language": "Language",
+    "unnauthorized_access": "You are not authorized to access this page",
+    "pending_requests": "Pending requests",
+    "accept_or_reject_requests": "Accept or reject pending requests",
+    "no_results": "No results found",
+    "accept": "Accept",
+    "reject": "Reject",
+    "confirm_appointment": "Do you want to accept this request?",
+    "answer_request": "Answer Request",
+    "schedule_appointment": "Schedule appointment",
+    "search": "Search",
+    "location": "Location",
+    "date_time": "Date and Time",
+    "name": "Name",
+    "email": "Email",
+    "servce": "Service",
+    "close": "Close",
+    "confirm": "Confirm"
+  }

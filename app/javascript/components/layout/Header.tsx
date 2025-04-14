@@ -2,7 +2,15 @@ import { useUserRole } from '../../hooks/UserRoleContext';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
 const Header = () => {
+    const { t, i18n } = useTranslation();
+
+    const changeLanguage = (lng: string | undefined) => {
+        i18n.changeLanguage(lng);
+    };
+
     const { role, setRole } = useUserRole();
     const navigate = useNavigate();
 
@@ -37,6 +45,8 @@ const Header = () => {
                         >
                             I am a Patient
                         </button>
+                        <button onClick={() => changeLanguage('en')}>English</button>
+                        <button onClick={() => changeLanguage('pt')}>Portuguese</button>
                     </nav>
                 </div>
             </div>

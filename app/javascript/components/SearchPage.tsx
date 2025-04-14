@@ -5,12 +5,12 @@ import SearchList from "./ui/SearchList";
 import Searcher from "./ui/Searcher";
 import { fetchNutritionists, searchNutritionists } from "../services/requests";
 import { useUserRole } from "../hooks/UserRoleContext";
-
+import { useTranslation } from 'react-i18next';
 
 export default function SearchPage() {
     const { role } = useUserRole();
     const [nutris, setNutris] = useState([]);
-
+    const { t } = useTranslation();
 
     useEffect(() => {
         const loadNutritionists = async () => {
@@ -34,7 +34,7 @@ export default function SearchPage() {
         }
     };
     if (role !== 'patient') {
-        return <h2>Unauthorized Access</h2>;
+        return <h2>{t('unnauthorized_access')}</h2>;
     }
     else return (
         <Layout>

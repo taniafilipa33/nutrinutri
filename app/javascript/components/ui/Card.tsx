@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import SchedulerModal from './SchedulerModal';
-
+import { useTranslation } from 'react-i18next';
 interface Service {
     id: string;
     name: string;
@@ -16,10 +16,10 @@ interface Nutri {
 
 export default function Card({ nutri }: { nutri: Nutri }) {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-
+    const { t } = useTranslation();
     const openModal = () => setIsModalOpen(true);
     const closeModal = () => setIsModalOpen(false);
-    console.log(nutri)
+
     return (
         <main className="py-2 px-4 md:px-10">
             <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow p-6 flex flex-col md:flex-row justify-between items-start gap-6">
@@ -60,7 +60,7 @@ export default function Card({ nutri }: { nutri: Nutri }) {
                             className="bg-orange-100 text-orange-600 hover:bg-orange-200 px-4 py-2 rounded"
                             onClick={openModal}
                         >
-                            Schedule appointment
+                            {t('schedule_appointment')}
                         </button>
 
                         <button

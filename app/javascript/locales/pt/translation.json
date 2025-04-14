@@ -1,0 +1,21 @@
+{
+    "welcome": "Bem Vindo à nutrinutri",
+    "language": "Idioma",
+    "unnauthorized_access": "Não estás autorizado a ver esta página",
+    "pending_requests": "Pedidos pendentes",
+    "accept_or_reject_requests": "Aceitar ou rejeitar pedidos pendentes",
+    "no_results": "Nenhum resultado encontrado",
+    "accept": "Aceitar",
+    "reject": "Rejeitar",
+    "confirm_appointment": "Queres aceitar este pedido?",
+    "answer_request": "Responder ao pedido",
+    "schedule_appointment": "Agendar consulta",
+    "search": "Pesquisar",
+    "location": "Localização",
+    "date_time": "Data e Hora",
+    "name": "Nome",
+    "email": "Email",
+    "service": "Serviço",
+    "close": "Fechar",
+    "confirm": "Confirmar"
+  }

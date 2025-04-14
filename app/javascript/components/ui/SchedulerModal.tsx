@@ -1,6 +1,6 @@
 import { checkPendingRequests, requestAppointment } from "../../services/requests";
 import React, { useState } from "react";
-
+import { useTranslation } from 'react-i18next';
 interface Services {
     id: string;
     name: string;
@@ -21,7 +21,7 @@ interface SchedulerModalProps {
     nutri: Nutri;
 }
 export default function SchedulerModal({ isOpen, onClose, nutri }: SchedulerModalProps) {
-
+    const { t } = useTranslation();
     const [name, setName] = useState<string>("");
     const [email, setEmail] = useState<string>("");
     const [dateTime, setDateTime] = useState<string>("");
@@ -49,11 +49,12 @@ export default function SchedulerModal({ isOpen, onClose, nutri }: SchedulerModa
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
             <div className="bg-white p-6 rounded-lg shadow-lg w-96">
-                <h2 className="text-2xl font-bold text-center mb-4">Schedule Appointment</h2>
+                <h2 className="text-2xl font-bold text-center mb-4">
+                    {t('schedule_appointment')}</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">
                         <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                            Name
+                            {t('name')}
                         </label>
                         <input
                             type="text"
@@ -66,7 +67,7 @@ export default function SchedulerModal({ isOpen, onClose, nutri }: SchedulerModa
                     </div>
                     <div className="mb-4">
                         <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                            Email
+                            {t('email')}
                         </label>
                         <input
                             type="email"
@@ -79,7 +80,7 @@ export default function SchedulerModal({ isOpen, onClose, nutri }: SchedulerModa
                     </div>
                     <div className="mb-4">
                         <label htmlFor="dateTime" className="block text-sm font-medium text-gray-700">
-                            Date & Time
+                            {t('date_time')}
                         </label>
                         <input
                             type="datetime-local"
@@ -92,7 +93,7 @@ export default function SchedulerModal({ isOpen, onClose, nutri }: SchedulerModa
                     </div>
                     <div className="mb-4">
                         <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                            Service
+                            {t('service')}
                         </label>
                         <select required onChange={(e) => setService(e.target.value)} className="w-full px-3 py-2 border rounded-md">
                             <option value="" disabled selected>Select a service</option>
@@ -109,13 +110,13 @@ export default function SchedulerModal({ isOpen, onClose, nutri }: SchedulerModa
                             onClick={onClose}
                             className="bg-gray-300 text-gray-700 hover:bg-gray-400 px-4 py-2 rounded"
                         >
-                            Close
+                            {t('cancel')}
                         </button>
                         <button
                             type="submit"
                             className="bg-orange-500 text-white hover:bg-orange-600 px-4 py-2 rounded"
                         >
-                            Submit
+                            {t('confirm')}
                         </button>
                     </div>
                 </form>
